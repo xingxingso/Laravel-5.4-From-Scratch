@@ -11,7 +11,8 @@
 |
 */
 
-Route::get('/', function () {
+// Route::get('/', function () {
+Route::get('/tasks', function () {
     // $name = 'Kant';
     // $age = 31;
     // return view('welcome', [
@@ -20,11 +21,27 @@ Route::get('/', function () {
     // return view('welcome', compact('name', 'age'));
     // return view('welcome')->with('name', 'New World');
 
-    $tasks = [
-        'Go to the store',
-        'Finish my screencast',
-        'Clean the house'
-    ];
+    // $tasks = [
+    //     'Go to the store',
+    //     'Finish my screencast',
+    //     'Clean the house'
+    // ];
 
-    return view('welcome', compact('tasks'));
+    // $tasks = DB::table('tasks')->get();
+    $tasks = DB::table('tasks')->latest()->get();
+
+    // $tasks = Task::all();
+
+    // return $tasks;
+
+    // return view('welcome', compact('tasks'));
+    return view('tasks.index', compact('tasks'));
+});
+
+Route::get('/tasks/{task}', function ($id) {
+// Route::get('/tasks/{task}', function (Task $id) {
+    // dd($id);
+    $task = DB::table('tasks')->find($id);
+    // dd($task);
+    return view('tasks.show', compact('task'));
 });
