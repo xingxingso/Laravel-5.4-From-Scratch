@@ -12,5 +12,19 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    // $name = 'Kant';
+    // $age = 31;
+    // return view('welcome', [
+    //     'name' => $name, 
+    // ]);
+    // return view('welcome', compact('name', 'age'));
+    // return view('welcome')->with('name', 'New World');
+
+    $tasks = [
+        'Go to the store',
+        'Finish my screencast',
+        'Clean the house'
+    ];
+
+    return view('welcome', compact('tasks'));
 });
