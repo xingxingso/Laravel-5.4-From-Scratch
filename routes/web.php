@@ -11,43 +11,46 @@
 |
 */
 
-use App\Task;
+// use App\Task;
 
 // Route::get('/', function () {
-Route::get('/tasks', function () {
-    // $name = 'Kant';
-    // $age = 31;
-    // return view('welcome', [
-    //     'name' => $name, 
-    // ]);
-    // return view('welcome', compact('name', 'age'));
-    // return view('welcome')->with('name', 'New World');
+// Route::get('/tasks', function () {
+//     // $name = 'Kant';
+//     // $age = 31;
+//     // return view('welcome', [
+//     //     'name' => $name, 
+//     // ]);
+//     // return view('welcome', compact('name', 'age'));
+//     // return view('welcome')->with('name', 'New World');
 
-    // $tasks = [
-    //     'Go to the store',
-    //     'Finish my screencast',
-    //     'Clean the house'
-    // ];
+//     // $tasks = [
+//     //     'Go to the store',
+//     //     'Finish my screencast',
+//     //     'Clean the house'
+//     // ];
 
-    // $tasks = DB::table('tasks')->get();
-    // $tasks = DB::table('tasks')->latest()->get();
+//     // $tasks = DB::table('tasks')->get();
+//     // $tasks = DB::table('tasks')->latest()->get();
 
-    // $tasks = App\Task::all();
-    $tasks = Task::all();
+//     // $tasks = App\Task::all();
+//     $tasks = Task::all();
 
-    // return $tasks;
+//     // return $tasks;
 
-    // return view('welcome', compact('tasks'));
-    return view('tasks.index', compact('tasks'));
-});
+//     // return view('welcome', compact('tasks'));
+//     return view('tasks.index', compact('tasks'));
+// });
 
-Route::get('/tasks/{task}', function ($id) {
-// Route::get('/tasks/{task}', function (Task $id) {
-    // dd($id);
-    // $task = DB::table('tasks')->find($id);
-    // dd($task);
+// Route::get('/tasks/{task}', function ($id) {
+// // Route::get('/tasks/{task}', function (Task $id) {
+//     // dd($id);
+//     // $task = DB::table('tasks')->find($id);
+//     // dd($task);
     
-    // $task = App\Task::find($id);
-    $task = Task::find($id);
-    return view('tasks.show', compact('task'));
-});
+//     // $task = App\Task::find($id);
+//     $task = Task::find($id);
+//     return view('tasks.show', compact('task'));
+// });
+
+Route::get('/tasks', 'TasksController@index');
+Route::get('/tasks/{task}', 'TasksController@show');
