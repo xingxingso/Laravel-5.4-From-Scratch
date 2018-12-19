@@ -11,6 +11,8 @@
 |
 */
 
+use App\Task;
+
 // Route::get('/', function () {
 Route::get('/tasks', function () {
     // $name = 'Kant';
@@ -28,9 +30,10 @@ Route::get('/tasks', function () {
     // ];
 
     // $tasks = DB::table('tasks')->get();
-    $tasks = DB::table('tasks')->latest()->get();
+    // $tasks = DB::table('tasks')->latest()->get();
 
-    // $tasks = Task::all();
+    // $tasks = App\Task::all();
+    $tasks = Task::all();
 
     // return $tasks;
 
@@ -41,7 +44,10 @@ Route::get('/tasks', function () {
 Route::get('/tasks/{task}', function ($id) {
 // Route::get('/tasks/{task}', function (Task $id) {
     // dd($id);
-    $task = DB::table('tasks')->find($id);
+    // $task = DB::table('tasks')->find($id);
     // dd($task);
+    
+    // $task = App\Task::find($id);
+    $task = Task::find($id);
     return view('tasks.show', compact('task'));
 });
