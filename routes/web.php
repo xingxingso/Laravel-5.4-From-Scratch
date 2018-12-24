@@ -67,6 +67,7 @@
 // App::instance('App\Billing\Stripe', $stripe);
 
 // dd($stripe);
+// dd(resolve('App\Billing\Stripe'));
 
 // controller => PostsController
 // Eloquent model => Post
