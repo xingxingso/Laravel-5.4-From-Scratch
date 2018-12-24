@@ -1,0 +1,24 @@
+<?php 
+
+namespace App\Repositories;
+
+use App\Post;
+use App\Redis;
+
+class Posts
+{
+    
+    protected $redis;
+
+    public function __construct(Redis $redis)
+    {
+        $this->redis = $redis;
+    }
+
+    function all()
+    {
+        // return all posts    
+        return Post::all();
+        // return Post::select()->get();
+    }
+}

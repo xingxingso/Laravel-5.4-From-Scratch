@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Post;
+use App\Repositories\Posts;
 use Carbon\Carbon;
 
 class PostsController extends Controller
@@ -12,8 +13,11 @@ class PostsController extends Controller
         $this->middleware('auth')->except(['index', 'show']);
     }
 
-    public function index()
+    // public function index()
+    public function index(Posts $posts)
     {
+        // dd($posts);
+
         // $posts = Post::all();
         // $posts = Post::orderBy('created_at', 'desc')->get();
         // $posts = Post::latest()->get();
@@ -30,9 +34,12 @@ class PostsController extends Controller
 
         // $posts = $posts->get();
         
-        $posts = Post::latest()
-            ->filter(request(['month', 'year']))
-            ->get();
+        // $posts = Post::latest()
+        //     ->filter(request(['month', 'year']))
+        //     ->get();
+
+        // $posts = (new \App\Repositories\Posts)->all();
+        $posts = $posts->all();
 
         // // Temporary.
         // $archives = Post::selectRaw('year(created_at) year,monthname(created_at) month,count(*) published')
