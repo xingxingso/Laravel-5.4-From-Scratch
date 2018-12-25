@@ -41,6 +41,9 @@ class RegistrationController extends Controller
 
         $form->persist();
 
+        // session('message', 'Here is a default message');
+        session()->flash('message', 'Thanks so mush for signing up!');
+
         // Redirect to the home page.
         return redirect()->home();
     }

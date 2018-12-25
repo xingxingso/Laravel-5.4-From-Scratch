@@ -24,7 +24,13 @@
 
       @include ('layouts.header')
 
-      @include ('layouts.nav')      
+      @include ('layouts.nav') 
+
+      @if ($flash = session('message'))
+        <div id="flash-message" class="alert alert-success" role="alert">
+          {{ $flash }}
+        </div>
+      @endif
 
       <div class="jumbotron p-3 p-md-5 text-white rounded bg-dark">
         <div class="col-md-6 px-0">

@@ -17,6 +17,7 @@ class PostsController extends Controller
     public function index(Posts $posts)
     {
         // dd($posts);
+        // return session('message');
 
         // $posts = Post::all();
         // $posts = Post::orderBy('created_at', 'desc')->get();
@@ -33,13 +34,13 @@ class PostsController extends Controller
         // }
 
         // $posts = $posts->get();
-        
-        // $posts = Post::latest()
-        //     ->filter(request(['month', 'year']))
-        //     ->get();
+
+        $posts = Post::latest()
+            ->filter(request(['month', 'year']))
+            ->get();
 
         // $posts = (new \App\Repositories\Posts)->all();
-        $posts = $posts->all();
+        // $posts = $posts->all();
 
         // // Temporary.
         // $archives = Post::selectRaw('year(created_at) year,monthname(created_at) month,count(*) published')
@@ -103,6 +104,10 @@ class PostsController extends Controller
 
         auth()->user()->publish(
             new Post(request(['title', 'body']))
+        );
+
+        session()->flash(
+            'message', 'Your post has now been published.'
         );
 
         // And then redirect to the home page.
