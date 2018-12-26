@@ -13,11 +13,13 @@ class PostsController extends Controller
         $this->middleware('auth')->except(['index', 'show']);
     }
 
-    // public function index()
-    public function index(Posts $posts)
+    // public function index(Posts $posts)
+    // public function index(\App\Tag $tag = null)
+    public function index()
     {
         // dd($posts);
         // return session('message');
+        // return $tag->posts;
 
         // $posts = Post::all();
         // $posts = Post::orderBy('created_at', 'desc')->get();
