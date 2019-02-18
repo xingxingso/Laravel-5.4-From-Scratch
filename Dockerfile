@@ -6,7 +6,7 @@ RUN cd /app \
     && npm install --registry=https://registry.npm.taobao.org
 
 COPY webpack.mix.js /app/
-# COPY resources/assets/ /app/resources/assets/
+COPY resources/ /app/resources/
 
 RUN cd /app \
     && npm run production
