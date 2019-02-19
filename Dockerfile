@@ -45,8 +45,8 @@ RUN cd ${LARAVEL_PATH} \
     && mkdir -p storage/logs \
     && chmod -R 777 storage
 
-RUN cd ${LARAVEL_PATH} \
-    && php artisan migrate
+# RUN cd ${LARAVEL_PATH} \
+    # && php artisan migrate
 
 FROM nginx:alpine as nginx
 
